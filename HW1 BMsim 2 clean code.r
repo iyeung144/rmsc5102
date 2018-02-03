@@ -23,6 +23,9 @@ BMsim <- function(npaths, nSamples)
 		y[1,j] <- S0
 		for (i in 1:N)
 		{
+			# z is standard normal
+			# sigma*z is the Wt in standard Brownian motion process
+			# z[i+1] = 1/sqrt(n) * z[i]
 		  y[i+1,j] <- y[1,j]*exp(nu*t[i+1]+sigma*sum(z[1:i]))
 		}
 		answer <- answer + y[N+1,j]

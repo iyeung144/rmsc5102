@@ -12,13 +12,16 @@ SBMsim <- function(nSamples)
 	N <- nSamples
 
 	w <- rep(0,N)
-
-	W0 <- 0
+	w[1] <- 0
 	
 	z <- rnorm(N,0,1)
-	w[1] <- W0
+	
 	for (i in 1:N) {
-		  w[i+1] <- w[i] + (1/sqrt(N))*z[i] # (1/sqrt(N))*z[i] is normally distributed with dt = 1/n
+			# z is standard normal
+			# sigma*z is the Wt in standard Brownian motion process
+			# Time period of [0,1], each time partition for N partitions is (1-0)/N = 1/N = dt
+			# (1/sqrt(N))*z[i] is normally distributed with dt = 1/N. This is from definition
+		  w[i+1] <- w[i] + (1/sqrt(N))*z[i] 
 	}
 	return(w)
 }
