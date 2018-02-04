@@ -1,5 +1,3 @@
-# HW2 q3.r
-
 k <- 1000 #number of simulated data points needed
 x <- rep(0,1000) #to store the successful simulation result
 
@@ -16,8 +14,8 @@ counter <- 0 #to check number of successful simulations taken
 #take k loops to get k data points
 for (i in 1:k){
 
-   # flag <- FALSE #work until an acceptable data point is picked
-   # while (!flag) {
+   flag <- FALSE #work until an acceptable data point is picked
+   while (!flag) {
     
     u1 <- trunc(runif(1,0,1)*length(pmfX)+1) #generate u1 from uniform distribution
     u2 <- runif(1,0,1) #generate U
@@ -28,7 +26,7 @@ for (i in 1:k){
       flag <- TRUE
       counter <- counter + 1
     }
-   # }
+   }
 }
 cat("Number of successful simulation: ", counter)
-hist(x,breaks=0:7,main = "Histogram of simulation by the given pmf", ylim=c(0,800))
+hist(x,breaks=0:7,main = "Histogram of simulation by the given pmf")
