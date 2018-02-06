@@ -1,5 +1,4 @@
-# Simulations to calculate call
-# and put price
+# Simulations to calculate call # and put price
 # HW2 q5.r
 
 N <- 10000 #number of samples
@@ -12,7 +11,6 @@ r <- 0.0018 #risk-free rate
 meanpayoff <- function(nSamples,initialprice,
 strikeprice,deltaT,vol,rate)
 {
-  
   N <- nSamples
   S0 <- initialprice
   K <- strikeprice
